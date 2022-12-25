@@ -8,6 +8,29 @@ void simulate_bayer_mosaic(
 {
   bayer.resize(width*height);
   ////////////////////////////////////////////////////////////////////////////
-  // Add your code here
+  for (int i = 0; i<width; i++){
+    for (int m = 0; m<height; m++){
+      if (m%2 == 0){  //g and b
+        if (i % 2 == 0){ //g
+          bayer[(i+m*width)] = rgb[3*(i+m*width)+1];
+        }
+        else{//b
+          bayer[(i+m*width)] = rgb[3*(i+m*width)+2];
+
+        }}
+        else{ //r,g
+          if(i%2 == 0){
+            bayer[(i+m*width)] = rgb[3*(i+m*width)];
+          }
+          else{
+            bayer[(i+m*width)] = rgb[3*(i+m*width)+1];
+          }
+
+        }
+
+      }
+
+    }
+  }
   ////////////////////////////////////////////////////////////////////////////
-}
+
